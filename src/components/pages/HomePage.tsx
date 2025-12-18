@@ -1,13 +1,3 @@
-
-      { threshold: 0.15 }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  const getDirectionOffset = () => {
-    switch (directi// HPI 1.6-V
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
@@ -41,7 +31,16 @@ const ScrollReveal: React.FC<RevealProps> = ({ children, className, delay = 0, d
           setIsVisible(true);
           observer.unobserve(element);
         }
-      },on) {
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const getDirectionOffset = () => {
+    switch (direction) {
       case 'up': return 'translate-y-12';
       case 'down': return '-translate-y-12';
       case 'left': return 'translate-x-12';
@@ -133,10 +132,10 @@ export default function HomePage() {
             {/* Abstract Organic Shapes (SVG) - Replicating the 'Green Blobs' motif but in brand colors */}
             <div className="absolute inset-0 w-full h-full">
                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                 <path d="M0 100 V 50 Q 25 30 50 50 T 100 50 V 100 Z" fill="#B9B04A" />
-                 <path d="M0 100 V 60 Q 30 80 60 60 T 120 60 V 100 Z" fill="#D12318" opacity="0.9" />
-                 <path d="M0 100 V 80 Q 40 40 80 80 T 160 80 V 100 Z" fill="#3E1F0D" opacity="0.4" />
-               </svg>
+                  <path d="M0 100 V 50 Q 25 30 50 50 T 100 50 V 100 Z" fill="#B9B04A" />
+                  <path d="M0 100 V 60 Q 30 80 60 60 T 120 60 V 100 Z" fill="#D12318" opacity="0.9" />
+                  <path d="M0 100 V 80 Q 40 40 80 80 T 160 80 V 100 Z" fill="#3E1F0D" opacity="0.4" />
+                </svg>
             </div>
 
             {/* Overlay Content */}
