@@ -1,4 +1,13 @@
-// HPI 1.6-V
+
+      { threshold: 0.15 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const getDirectionOffset = () => {
+    switch (directi// HPI 1.6-V
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
@@ -32,16 +41,7 @@ const ScrollReveal: React.FC<RevealProps> = ({ children, className, delay = 0, d
           setIsVisible(true);
           observer.unobserve(element);
         }
-      },
-      { threshold: 0.15 }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  const getDirectionOffset = () => {
-    switch (direction) {
+      },on) {
       case 'up': return 'translate-y-12';
       case 'down': return '-translate-y-12';
       case 'left': return 'translate-x-12';
